@@ -1,9 +1,10 @@
+
 <div ng-controller="homeController as $ctrl">
   <div ng-show="!$ctrl.listaUnica">
     <table ng-repeat="$ctrl.categorias as categoria">
       <thead>
         <tr>
-          <td colspan="3">{{ ::$ctrl.tarefas.categoria }}</td>
+          <td colspan="3">{{ categoria }}</td>
         </tr>
 
         <tr>
@@ -24,11 +25,12 @@
     </table>
   </div>
 
-  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Teste inicio xxxxxxxxxxxxxxxxxxxxxxxxxx -->
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx lista única xxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Teste inicio xxxxxxxxxxxxxxxxxxxxxxxxxx -->
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx lista única xxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 
+<!-- TAREFAS PENDENTES -->
   <div ng-show="$ctrl.listaUnica">
     <table>
       <thead>
@@ -51,6 +53,7 @@
       </tbody>
     </table>
 
+    <!-- TAREFAS CONCLUÍDAS -->
     <table>
       <thead>
         <tr>
@@ -72,5 +75,4 @@
       </tbody>
     </table>
   </div>
-
 </div>
