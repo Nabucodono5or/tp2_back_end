@@ -2,6 +2,10 @@
 
   function homeController() {
 
+    this.listaUnica = true;
+
+    this.categorias = ['Casa', 'Trabalho', 'Faculdade'];
+
     this.tarefas = [
       { nome: 'Varrer o quarto', categoria: 'Casa', feito: false },
       { nome: 'Lavar a louça', categoria: 'Casa', feito: true },

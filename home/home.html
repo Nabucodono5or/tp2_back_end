@@ -1,0 +1,76 @@
+<div ng-controller="homeController as $ctrl">
+  <div ng-show="!$ctrl.listaUnica">
+    <table ng-repeat="$ctrl.categorias as categoria">
+      <thead>
+        <tr>
+          <td colspan="3">{{ ::$ctrl.tarefas.categoria }}</td>
+        </tr>
+
+        <tr>
+          <td>Tarefa realizada</td>
+          <td>Tarefa</td>
+          <td>Categoria</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tbody ng-repeat="tarefa in $ctrl.tarefas | filter:{categoria: categoria } ">
+          <tr>
+            <td> <input type="checkbox" ng-model="tarefa.feito"> </td>
+            <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+            <td ng-bind="tarefa.categoria"></td>
+          </tr>
+        </tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Teste inicio xxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Teste inicio xxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+  <div ng-show="$ctrl.listaUnica">
+    <table>
+      <thead>
+        <tr>
+          <td colspan="3">Tarefas Pendentes</td>
+        </tr>
+
+        <tr>
+          <td>Tarefa realizada</td>
+          <td>Tarefa</td>
+          <td>Categoria</td>
+        </tr>
+      </thead>
+      <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : false">
+        <tr>
+          <td > <input type="checkbox" ng-model="tarefa.feito"> </td>
+          <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+          <td ng-bind="tarefa.categoria"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <td colspan="3">Tarefas Concluídas</td>
+        </tr>
+
+        <tr>
+          <td>Tarefa realizada</td>
+          <td>Tarefa</td>
+          <td>Categoria</td>
+        </tr>
+      </thead>
+      <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : true">
+        <tr>
+          <td> <input type="checkbox" ng-model="tarefa.feito"> </td>
+          <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+          <td ng-bind="tarefa.categoria"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
