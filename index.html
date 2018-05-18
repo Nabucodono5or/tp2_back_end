@@ -11,15 +11,15 @@
     <script src="tarefa/tarefa.js" charset="utf-8"></script>
     <title></title>
   </head>
-  <body ng-app="myApp" ng-init="listaUnica = true">
+  <body ng-app="myApp" ng-init="listaUnica = true; botaoExibicao = true">
 
     <!--  NAVIGATION -->
     <nav>
       <ul>
-        <li> <a ui-sref="home"> Home </a> </li>
-        <li> <a ui-sref="categoria">Categorias</a> </li>
-        <li> <a ui-sref="tarefa">Tarefas</a> </li>
-        <li> <button type="button" name="button" ng-click="listaUnica = !listaUnica"> listar por  </button> </li>
+        <li> <a ui-sref="home" ng-click="botaoExibicao = true"> Home </a> </li>
+        <li> <a ui-sref="categoria" ng-click="botaoExibicao = false">Categorias</a> </li>
+        <li> <a ui-sref="tarefa" ng-click="botaoExibicao = false">Tarefas</a> </li>
+        <li ng-show="botaoExibicao"> <button type="button" name="button" ng-click="listaUnica = !listaUnica"> listar por {{ listaUnica ? "Categorias" : "lista única" }} </button> </li>
       </ul>
     </nav>
 
