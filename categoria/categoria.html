@@ -1,3 +1,21 @@
-<div >
-  <p>categorias para serem construídas</p>
+<div>
+  <form name="form" ng-model="valorEntrada" class="" ng-submit="$ctrl.formSubmit(valorEntrada)">
+    <div>
+      <input type="text" name="nameCategoria" required novalidate>
+    </div>
+  </form>
+
+  <div class="">
+    <div class="" ng-repeat="categoria in $ctrl.categorias">
+      <p>{{ categoria }}</p>
+    </div>
+
+    <div class="" ng-show="$ctrl.entradaValida && form.nomeCategoria.$touched">
+      <p> <span>OK</span> Categoria adicionado com sucesso </p>
+    </div>
+
+    <div class="" ng-show="!$ctrl.entradaValida && && form.nomeCategoria.$error.required && form.nomeCategoria.$touched">
+      <p> <span>Erro!</span> Não foi possível adicionar a categoria. MAIS IFO SOBRE ERRO </p>
+    </div>
+  </div>
 </div>
