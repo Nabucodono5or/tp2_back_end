@@ -2,7 +2,7 @@
 
   function homeController() {
 
-    this.listaUnica = true;
+    this.listaUnica = true; // lista unica será configurado no init da pagina, entaõ aqui será removido
 
     this.categorias = ['Casa', 'Trabalho', 'Faculdade'];
 
