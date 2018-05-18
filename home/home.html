@@ -16,7 +16,7 @@
       <tbody>
         <tbody ng-repeat="tarefa in $ctrl.tarefas | filter:{categoria: categoria } ">
           <tr>
-            <td> <input type="checkbox" ng-model="tarefa.feito"> </td>
+            <td> <input type="checkbox" ng-model="tarefa.feito" /> </td>
             <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
             <td ng-bind="tarefa.categoria"></td>
           </tr>
@@ -46,7 +46,7 @@
       </thead>
       <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : false">
         <tr>
-          <td > <input type="checkbox" ng-model="tarefa.feito"> </td>
+          <td > <input type="checkbox" ng-model="tarefa.feito" /> </td>
           <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
           <td ng-bind="tarefa.categoria"></td>
         </tr>
@@ -68,7 +68,7 @@
       </thead>
       <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : true">
         <tr>
-          <td> <input type="checkbox" ng-model="tarefa.feito"> </td>
+          <td> <input type="checkbox" ng-model="tarefa.feito" /> </td>
           <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
           <td ng-bind="tarefa.categoria"></td>
         </tr>
