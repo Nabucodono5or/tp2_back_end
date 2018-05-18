@@ -13,8 +13,9 @@
 
 (function () {
 
-  function tarefaController() {
+  function tarefaController(entradaValida) {
     this.categorias = ['Casa', 'Trabalho', 'Faculdade'];
+    this.selecioneCategoria = false;
 
     this.tarefas = [
       { nome: 'Varrer o quarto', categoria: 'Casa', feito: false },
@@ -31,8 +32,38 @@
       { nome: 'Estudar Etapa 3', categoria: 'Faculdade', feito: false },
       { nome: 'Fazer TP1', categoria: 'Faculdade', feito: false }
       ];
+
+    this.selecioneCategoria = (item) => {
+      this.clickSelecioneCategoria = false;
+      this.categoriaSelecionada = item;
+      console.log(item);
+    }
+
+    function criarTarefa(nome, categoria) {
+      this.nome = nome;
+      this.ca = categoria;
+
+      return {
+        nome: this.nome,
+        categoria: this.ca,
+        feito: false
+      };
+    }
+
+    this.submitForm = (entrada) => {
+      if(entrada && this.categoriaSelecionada){
+        if(!entradaValida.tarefaRepetido(entrada, this.tarefas)){
+          this.sucesso = true;
+          this.falha = false;
+          let objetoTarefa = criarTarefa(this.entrada, this.categoriaSelecionada);
+        }else {
+          this.falha = true;
+          this.sucesso = false;
+        }
+      }
+    }
   }
 
-  tarefaController.$inject = [];
+  tarefaController.$inject = ['entradaValida'];
   angular.module('myApp').controller('tarefaController', tarefaController);
 })();

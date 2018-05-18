@@ -1,3 +1,29 @@
-<div >
-  <p>tarefas para serem feitas</p>
+<div>
+  <form class="" ng-submit="$ctrl.submitForm($ctrl.entrada)" novalidate>
+    <input type="text" placeholder="Adicione uma categoria e pressione enter" ng-model="$ctrl.entrada" required>
+  </form>
+
+  <button class="" type="button" ng-click="$ctrl.clickSelecioneCategoria = true"> Selecione uma categoria: {{ $ctrl.categoriaSelecionada }}</button>
+  <div class="" ng-show="$ctrl.clickSelecioneCategoria">
+    <div class="" ng-repeat="categoria in $ctrl.categorias">
+      <p ng-click="$ctrl.selecioneCategoria(categoria)">{{ categoria }}</p>
+    </div>
+  </div>
+
+  <div class="">
+    <div class="" ng-repeat="tarefa in $ctrl.tarefas">
+      <p>{{ tarefa }}</p>
+    </div>
+
+    <!-- && form.nameCategoria.$submitted -->
+    <div class="" ng-show="$ctrl.sucesso">
+      <p> <span>OK</span> tarefa adicionado com sucesso </p>
+    </div>
+
+    <!-- && form.nameCategoria.$submitted  -->
+    <div class="" ng-show="$ctrl.falha">
+      <p> <span>Erro!</span> Não foi possível adicionar a tarefa. MAIS IFO SOBRE ERRO </p>
+    </div>
+  </div>
+
 </div>
