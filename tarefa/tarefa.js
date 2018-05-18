@@ -56,6 +56,7 @@
           this.sucesso = true;
           this.falha = false;
           let objetoTarefa = criarTarefa(this.entrada, this.categoriaSelecionada);
+          this.tarefas.push(objetoTarefa);
         }else {
           this.falha = true;
           this.sucesso = false;

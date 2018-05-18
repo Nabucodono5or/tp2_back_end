@@ -24,6 +24,7 @@
       } else {
         this.sucesso = true;
         this.falha = false;
+        this.categorias.push(valor);
       }
     }
   }
