@@ -1,7 +1,7 @@
 
 <div>
   <!-- para o design final irei usar divs com grid -->
-  <div ng-show="!$ctrl.listaUnica">
+  <div ng-show="!listaUnica">
     <table ng-repeat="categoria in $ctrl.categorias">
       <thead>
         <tr>
@@ -32,7 +32,7 @@
 
 
 <!-- TAREFAS PENDENTES -->
-  <div ng-show="$ctrl.listaUnica">
+  <div ng-show="listaUnica">
     <table>
       <thead>
         <tr>
