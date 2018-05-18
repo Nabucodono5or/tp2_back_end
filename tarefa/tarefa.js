@@ -1,7 +1,19 @@
 (function () {
+  angular.module('myApp')
+  .config(function ($stateProvider) {
+    $stateProvider.state('tarefa', {
+      url: '/tarefa',
+      controller: 'tarefaController',
+      controllerAs: '$ctrl',
+      templateUrl: 'tarefa/tarefa.html'
+    });
+  });
+
+})();
+
+(function () {
 
   function tarefaController() {
-
     this.categorias = ['Casa', 'Trabalho', 'Faculdade'];
 
     this.tarefas = [
@@ -20,4 +32,7 @@
       { nome: 'Fazer TP1', categoria: 'Faculdade', feito: false }
       ];
   }
-});
+
+  tarefaController.$inject = [];
+  angular.module('myApp').controller('tarefaController', tarefaController);
+})();
