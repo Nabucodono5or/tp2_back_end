@@ -13,14 +13,16 @@
 (function() {
   function categoriaController(entradaValida) {
 
-    this.entradaValida = false;
+    this.validado;
     this.categorias = ['Casa', 'Trabalho', 'Faculdade'];
 
     this.formSubmit = (valor) => {
-      if (entradaValida.repetido(valor, entradaValida)) {
-        this.entradaValida = true;
+      console.log('lançado enter');
+      if (entradaValida.repetido(valor, this.categorias)) {
+        this.validado = false;
+      } else {
+        this.validado = true;
       }
-      this.entradaValida = false;
     }
   }
 
