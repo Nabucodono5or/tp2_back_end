@@ -9,11 +9,13 @@
         <p>{{ categoria }}</p>
       </div>
 
-      <div class="" ng-show="$ctrl.validado">
+      <!-- && form.nameCategoria.$submitted -->
+      <div class="" ng-show="$ctrl.sucesso">
         <p> <span>OK</span> Categoria adicionado com sucesso </p>
       </div>
 
-      <div class="" ng-show="!$ctrl.validado">
+      <!-- && form.nameCategoria.$submitted  -->
+      <div class="" ng-show="$ctrl.falha">
         <p> <span>Erro!</span> Não foi possível adicionar a categoria. MAIS IFO SOBRE ERRO </p>
       </div>
     </div>
