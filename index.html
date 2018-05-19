@@ -2,8 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
     <script src="https://unpkg.com/@uirouter/angularjs@1.0.7/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-touch.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="app/app.js" charset="utf-8"></script>
     <script src="services/services.js" charset="utf-8"></script>
     <script src="home/home.js" charset="utf-8"></script>
@@ -14,7 +19,7 @@
   <body ng-app="myApp" ng-init="listaUnica = true; botaoExibicao = true">
 
     <!--  NAVIGATION -->
-    <nav>
+    <nav class="">
       <ul>
         <li> <a ui-sref="home" ng-click="botaoExibicao = true"> Home </a> </li>
         <li> <a ui-sref="categoria" ng-click="botaoExibicao = false">Categorias</a> </li>

@@ -42,7 +42,6 @@
           this.sucesso = true;
           this.falha = false;
           let objetoTarefa = criarTarefa(this.entrada, this.categoriaSelecionada);
-          //this.tarefas.push(objetoTarefa);
           requisicao.insereTarefas(objetoTarefa);
         }else {
           this.falha = true;
