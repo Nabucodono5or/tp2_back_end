@@ -11,9 +11,9 @@
 })();
 
 (function() {
-  function categoriaController(entradaValida) {
+  function categoriaController(entradaValida, requisicao) {
 
-    this.categorias = ['Casa', 'Trabalho', 'Faculdade'];
+    this.categorias = requisicao.carregaCategoterias();
     this.sucesso = this.falha = false;
 
     this.formSubmit = (valor) => {
@@ -24,12 +24,12 @@
       } else {
         this.sucesso = true;
         this.falha = false;
-        this.categorias.push(valor);
+        requisicao.insereCategorias(valor);
       }
     }
   }
 
-  categoriaController.$inject = ['entradaValida'];
+  categoriaController.$inject = ['entradaValida', 'requisicao'];
   angular.module('myApp').controller('categoriaController', categoriaController);
 
 })();
