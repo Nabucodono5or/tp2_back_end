@@ -24,3 +24,12 @@ body {
 .cortado {
   text-decoration: line-through;
 }
+
+.my-panel {
+  margin-top: 20px;
+}
+
+.glyphicon-remove {
+  font-size: 1.7em;
+  color: blue;
+}

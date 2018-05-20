@@ -34,39 +34,6 @@
 
 <!-- TAREFAS PENDENTES -->
 
-<!--
-<div class="row" ng-controller="myController as $ctrl">
-
-  <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8">
-    <div>
-        <table class="table mytable table-condensed" ng-repeat="categoria in $ctrl.categorias track by $index">
-            <thead class="">
-              <tr>
-                <td colspan="3" class="bg-primary h4"><strong>{{ categoria }}</strong> </td>
-              </tr>
-              <tr>
-                <td> <strong>Tarefa realizada</strong> </td>
-                <td> <strong>Tarefa</strong> </td>
-                <td><strong> Categoria </strong> </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tbody ng-repeat="tarefa in $ctrl.tarefas | filter:{categoria: categoria } track by $index">
-                <tr>
-                  <td> <input type="checkbox" ng-model="tarefa.feito"/> </td>
-                  <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
-                  <td ng-bind="tarefa.categoria"></td>
-                </tr>
-              </tbody>
-            </tbody>
-          </table>
-    </div>
-  </div>
-
-</div>
-
--->
-
   <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8">
     <div ng-show="listaUnica">
       <table class="table mytable panel panel-primary">

@@ -1,12 +1,27 @@
 <div>
-  <form name="form" class="" ng-submit="$ctrl.formSubmit(valorEntrada)" novalidate>
-    <div>
-      <input type="text" name="nameCategoria" ng-model="valorEntrada" required>
-    </div>
+  <div class="row">
+    <form class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2" name="form" ng-submit="$ctrl.formSubmit(valorEntrada)" novalidate>
+        <div class="">
+          <input class="col-sm-11 col-md-11" type="text" name="nameCategoria" ng-model="valorEntrada" required>
+          <span class="glyphicon glyphicon-remove"></span>
+        </div>
 
-    <div class="">
-      <div class="" ng-repeat="categoria in $ctrl.categorias">
-        <p>{{ categoria }}</p>
+      <div class="my-panel panel panel-warning">
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <td> <strong>Categorias Disponíveis</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="categoria in $ctrl.categorias">
+                <td><p>{{ categoria }}</p></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
 
       <!-- && form.nameCategoria.$submitted -->
@@ -16,10 +31,11 @@
 
       <!-- && form.nameCategoria.$submitted  -->
       <div class="" ng-show="$ctrl.falha">
-        <p> <span>Erro!</span> Não foi possível adicionar a categoria. MAIS IFO SOBRE ERRO </p>
+        <p> <span>Erro!</span> Não foi possível adicionar a categoria. MAIS INFO SOBRE ERRO </p>
       </div>
-    </div>
 
-  </form>
+    </form>
+
+  </div>
 
 </div>
