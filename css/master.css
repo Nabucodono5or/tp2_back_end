@@ -1,3 +1,7 @@
+body {
+  background-color:
+}
+
 @media (min-width: 768px) {
   .navbar-nav {
     width: 100%;
@@ -10,4 +14,13 @@
   .navbar-nav > li.navbar-right {
     float: right !important;
   }
+}
+
+.mytable {
+  background-color: white;
+  margin-top: 60px;
+}
+
+.cortado {
+  text-decoration: line-through;
 }

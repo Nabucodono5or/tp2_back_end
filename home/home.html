@@ -1,79 +1,117 @@
 
 <div>
-  <!-- para o design final irei usar divs com grid -->
-  <div ng-show="!listaUnica">
-    <table ng-repeat="categoria in $ctrl.categorias">
-      <thead>
-        <tr>
-          <td colspan="3">{{ categoria }}</td>
-        </tr>
-
-        <tr>
-          <td>Tarefa realizada</td>
-          <td>Tarefa</td>
-          <td>Categoria</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tbody ng-repeat="tarefa in $ctrl.tarefas | filter:{categoria: categoria } ">
+  <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8">
+    <div ng-show="!listaUnica">
+      <table ng-repeat="categoria in $ctrl.categorias track by $index" class="table mytable panel panel-primary">
+        <thead>
           <tr>
-            <td> <input type="checkbox" ng-model="tarefa.feito" /> </td>
-            <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
-            <td ng-bind="tarefa.categoria"></td>
+            <td colspan="3" class="bg-primary h3"> <strong>{{ categoria }}</strong> </td>
           </tr>
-        </tbody>
-      </tbody>
-    </table>
-  </div>
 
+          <tr>
+            <td> <strong> Tarefa realizada</strong> </td>
+            <td> <strong>Tarefa</strong> </td>
+            <td> <strong>Categoria</strong> </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tbody ng-repeat="tarefa in $ctrl.tarefas | filter:{categoria: categoria } track by $index">
+            <tr>
+              <td> <input type="checkbox" ng-model="tarefa.feito" /> </td>
+              <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+              <td ng-bind="tarefa.categoria"></td>
+            </tr>
+          </tbody>
+        </tbody>
+      </table>
+    </div>
+
+</div>
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx lista única xxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx lista única xxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 
 <!-- TAREFAS PENDENTES -->
-  <div ng-show="listaUnica">
-    <table>
-      <thead>
-        <tr>
-          <td colspan="3">Tarefas Pendentes</td>
-        </tr>
 
-        <tr>
-          <td>Tarefa realizada</td>
-          <td>Tarefa</td>
-          <td>Categoria</td>
-        </tr>
-      </thead>
-      <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : false">
-        <tr>
-          <td > <input type="checkbox" ng-model="tarefa.feito" /> </td>
-          <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
-          <td ng-bind="tarefa.categoria"></td>
-        </tr>
-      </tbody>
-    </table>
+<!--
+<div class="row" ng-controller="myController as $ctrl">
 
-    <!-- TAREFAS CONCLUÍDAS -->
-    <table>
-      <thead>
-        <tr>
-          <td colspan="3">Tarefas Concluídas</td>
-        </tr>
+  <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8">
+    <div>
+        <table class="table mytable table-condensed" ng-repeat="categoria in $ctrl.categorias track by $index">
+            <thead class="">
+              <tr>
+                <td colspan="3" class="bg-primary h4"><strong>{{ categoria }}</strong> </td>
+              </tr>
+              <tr>
+                <td> <strong>Tarefa realizada</strong> </td>
+                <td> <strong>Tarefa</strong> </td>
+                <td><strong> Categoria </strong> </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tbody ng-repeat="tarefa in $ctrl.tarefas | filter:{categoria: categoria } track by $index">
+                <tr>
+                  <td> <input type="checkbox" ng-model="tarefa.feito"/> </td>
+                  <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+                  <td ng-bind="tarefa.categoria"></td>
+                </tr>
+              </tbody>
+            </tbody>
+          </table>
+    </div>
+  </div>
 
-        <tr>
-          <td>Tarefa realizada</td>
-          <td>Tarefa</td>
-          <td>Categoria</td>
-        </tr>
-      </thead>
-      <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : true">
-        <tr>
-          <td> <input type="checkbox" ng-model="tarefa.feito" /> </td>
-          <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
-          <td ng-bind="tarefa.categoria"></td>
-        </tr>
-      </tbody>
-    </table>
+</div>
+
+-->
+
+  <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8">
+    <div ng-show="listaUnica">
+      <table class="table mytable panel panel-primary">
+        <thead>
+          <tr>
+            <td colspan="3" class="bg-primary h3"> <strong>Tarefas Pendentes</strong> </td>
+          </tr>
+
+          <tr>
+            <td> <strong> Tarefa realizada</strong> </td>
+            <td> <strong>Tarefa</strong> </td>
+            <td> <strong>Categoria</strong> </td>
+          </tr>
+        </thead>
+        <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : false track by $index">
+          <tr>
+            <td > <input type="checkbox" ng-model="tarefa.feito" /> </td>
+            <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+            <td ng-bind="tarefa.categoria"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- TAREFAS CONCLUÍDAS -->
+      <table class="table mytable panel panel-primary">
+        <thead>
+          <tr>
+            <td colspan="3" class="bg-primary h3"><strong>Tarefas Concluídas</strong></td>
+          </tr>
+
+          <tr>
+            <td> <strong> Tarefa realizada</strong> </td>
+            <td> <strong>Tarefa</strong> </td>
+            <td> <strong>Categoria</strong> </td>
+          </tr>
+        </thead>
+        <tbody ng-repeat="tarefa in $ctrl.tarefas | filter : true">
+          <tr>
+            <td> <input type="checkbox" ng-model="tarefa.feito" /> </td>
+            <td ng-bind="tarefa.nome" ng-class="{cortado : tarefa.feito}"></td>
+            <td ng-bind="tarefa.categoria"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
