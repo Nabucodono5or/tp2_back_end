@@ -1,5 +1,5 @@
 body {
-  background-color:
+  background-color: aquamarine;
 }
 
 @media (min-width: 768px) {
@@ -35,5 +35,5 @@ body {
 
 .glyphicon-remove {
   font-size: 1.7em;
-  color: blue;
+  color: white;
 }
