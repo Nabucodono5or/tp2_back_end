@@ -15,12 +15,15 @@
 
   function tarefaController(entradaValida, requisicao) {
     this.categorias = requisicao.carregaCategoterias();
-    this.selecioneCategoria = false;
 
+    this.alerts = [];
     this.tarefas = requisicao.carregaTarefas();
 
+    this.closeAlert = (index) => {
+      this.alerts.splice(index, 1);
+    }
+
     this.selecioneCategoria = (item) => {
-      this.clickSelecioneCategoria = false;
       this.categoriaSelecionada = item;
       console.log(item);
     }
@@ -43,9 +46,11 @@
           this.falha = false;
           let objetoTarefa = criarTarefa(this.entrada, this.categoriaSelecionada);
           requisicao.insereTarefas(objetoTarefa);
+          this.alerts.push( {type: 'success', msg: 'OK! tarefa adicionado com sucesso'});
         }else {
           this.falha = true;
           this.sucesso = false;
+          this.alerts.push({type: 'warning', msg: 'Erro! Não foi possível adicionar a tarefa. MAIS INFO SOBRE ERRO'});
         }
       }
     }

@@ -1,33 +1,33 @@
 <div>
   <div class="row">
-    <form class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2" name="form" ng-submit="$ctrl.formSubmit(valorEntrada)" novalidate>
-        <div class="formulario">
-          <input class="col-sm-11 col-md-11" type="text" name="nameCategoria" ng-model="valorEntrada" required>
-          <span class="glyphicon glyphicon-remove"></span>
+    <div class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2">
+      <form class="" name="form" ng-submit="$ctrl.formSubmit(valorEntrada)" novalidate>
+          <div class="formulario">
+            <input class="col-sm-11 col-md-11" type="text" name="nameCategoria" ng-model="valorEntrada" required>
+            <span class="glyphicon glyphicon-remove"></span>
+          </div>
+
+        <div class="my-panel panel panel-warning">
+          <div class="">
+            <table class="table">
+              <thead>
+                <tr>
+                  <td> <strong>Categorias Disponíveis</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="categoria in $ctrl.categorias">
+                  <td><p>{{ categoria }}</p></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-      <div class="my-panel panel panel-warning">
-        <div>
-          <table class="table">
-            <thead>
-              <tr>
-                <td> <strong>Categorias Disponíveis</strong></td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="categoria in $ctrl.categorias">
-                <td><p>{{ categoria }}</p></td>
-              </tr>
-            </tbody>
-          </table>
+        <div uib-alert ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type)" close="$ctrl.closeAlert($index)" dismiss-on-timeout="2000">
+          {{alert.msg}}
         </div>
-
-      </div>
-
-      <div uib-alert ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type)" close="$ctrl.closeAlert($index)" dismiss-on-timeout="2000">
-        {{alert.msg}}
-      </div>
-
+    </div>
     </form>
   </div>
 

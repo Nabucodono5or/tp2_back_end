@@ -1,29 +1,50 @@
 <div>
-  <form class="" ng-submit="$ctrl.submitForm($ctrl.entrada)" novalidate>
-    <input type="text" placeholder="Adicione uma categoria e pressione enter" ng-model="$ctrl.entrada" required>
-  </form>
 
-  <button class="" type="button" ng-click="$ctrl.clickSelecioneCategoria = true"> Selecione uma categoria: {{ $ctrl.categoriaSelecionada }}</button>
-  <div class="" ng-show="$ctrl.clickSelecioneCategoria">
-    <div class="" ng-repeat="categoria in $ctrl.categorias">
-      <p ng-click="$ctrl.selecioneCategoria(categoria)">{{ categoria }}</p>
+  <div class="row">
+    <form class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2" name="form" ng-submit="$ctrl.submitForm($ctrl.entrada)" novalidate>
+      <input type="text" name="entrada" class="col-sm-11 col-md-11" ng-maxlength="16" placeholder="Adicione uma categoria e pressione enter" ng-model="$ctrl.entrada" required>
+      <span class="glyphicon glyphicon-remove"></span>
+    </form> <br>
+    <p class="col-sm-11 col-md-11 col-md-offset-2 col-sm-offset-2 text-warning" ng-show="form.entrada.$error.maxlength && form.entrada.$touched">Nome de tarefa muito longo.</p>
+  </div>
+
+  <div class="row">
+
+    <div class="btn-group  col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2" uib-dropdown on-toggle="toggledDropdown(open)" keyboard-nav>
+      <button type="button" class="my-panel btn btn-primary col-sm-12 col-md-12" uib-dropdown-toggle>
+        Selecione uma categoria: {{ $ctrl.categoriaSelecionada }} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+        <li role="menuitem" ng-repeat="categoria in $ctrl.categorias">
+          <a ng-click="$ctrl.selecioneCategoria(categoria)" href>{{categoria}}</a>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <div class="">
-    <div class="" ng-repeat="tarefa in $ctrl.tarefas">
-      <p>{{ tarefa }}</p>
+  <!-- trabalho a ser feito acima -->
+    <div class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2">
+      <div class="my-panel panel panel-warning ">
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <td> <strong>Lista de Tarefas</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="tarefa in $ctrl.tarefas">
+                <td><p>{{ tarefa.nome }} ( {{ tarefa.categoria }} ) </p></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
     </div>
 
-    <!-- && form.nameCategoria.$submitted -->
-    <div class="" ng-show="$ctrl.sucesso">
-      <p> <span>OK</span> tarefa adicionado com sucesso </p>
-    </div>
-
-    <!-- && form.nameCategoria.$submitted  -->
-    <div class="" ng-show="$ctrl.falha">
-      <p> <span>Erro!</span> Não foi possível adicionar a tarefa. MAIS IFO SOBRE ERRO </p>
-    </div>
+      <div uib-alert ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type)" close="$ctrl.closeAlert($index)" dismiss-on-timeout="2000">
+        {{alert.msg}}
+      </div>
   </div>
 
 </div>

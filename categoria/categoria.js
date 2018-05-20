@@ -22,7 +22,7 @@
 
     this.formSubmit = (valor) => {
       if (entradaValida.repetido(valor, this.categorias)) {
-        this.alerts.push({type: 'warning', msg: 'Erro! Não foi possível adicionar a categoria. MAIS INFO SOBRE ERRO'})
+        this.alerts.push({type: 'warning', msg: 'Erro! Não foi possível adicionar a categoria. MAIS INFO SOBRE ERRO'});
       } else {
         requisicao.insereCategorias(valor);
         this.alerts.push( {type: 'success', msg: 'OK! Categoria adicionado com sucesso'});
