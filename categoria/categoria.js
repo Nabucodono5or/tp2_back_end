@@ -13,18 +13,19 @@
 (function() {
   function categoriaController(entradaValida, requisicao) {
 
+    this.alerts = [];
     this.categorias = requisicao.carregaCategoterias();
-    this.sucesso = this.falha = false;
+
+    this.closeAlert = (index) => {
+      this.alerts.splice(index, 1);
+    }
 
     this.formSubmit = (valor) => {
-      console.log('lançado enter');
       if (entradaValida.repetido(valor, this.categorias)) {
-        this.sucesso = false;
-        this.falha = true;
+        this.alerts.push({type: 'warning', msg: 'Erro! Não foi possível adicionar a categoria. MAIS INFO SOBRE ERRO'})
       } else {
-        this.sucesso = true;
-        this.falha = false;
         requisicao.insereCategorias(valor);
+        this.alerts.push( {type: 'success', msg: 'OK! Categoria adicionado com sucesso'});
       }
     }
   }

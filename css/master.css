@@ -29,6 +29,10 @@ body {
   margin-top: 20px;
 }
 
+.formulario span {
+    margin-left: 15px;
+}
+
 .glyphicon-remove {
   font-size: 1.7em;
   color: blue;
