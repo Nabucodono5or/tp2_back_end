@@ -1,7 +1,7 @@
 <div>
 
   <div class="row">
-    <form class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2" name="form" ng-submit="$ctrl.submitForm($ctrl.entrada)" novalidate>
+    <form class="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-1" name="form" ng-submit="$ctrl.submitForm($ctrl.entrada)" novalidate>
       <input type="text" name="entrada" class="col-sm-11 col-md-11" ng-maxlength="16" placeholder="Adicione uma categoria e pressione enter" ng-model="$ctrl.entrada" required>
       <span class="glyphicon glyphicon-remove"></span>
     </form> <br>
@@ -10,7 +10,7 @@
 
   <div class="row">
 
-    <div class="btn-group  col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2" uib-dropdown on-toggle="toggledDropdown(open)" keyboard-nav>
+    <div class="btn-group  col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-1" uib-dropdown on-toggle="toggledDropdown(open)" keyboard-nav>
       <button type="button" class="my-panel btn btn-primary col-sm-12 col-md-12" uib-dropdown-toggle>
         Selecione uma categoria: {{ $ctrl.categoriaSelecionada }} <span class="caret"></span>
       </button>
